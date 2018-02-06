@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      video {
+        display: none;
+      }
+
+      canvas {
+        mix-blend-mode: overlay;
+      }
+
+      #gameboy {
+        top: 0;
+        left: 0;
+        width: 261px;
+        height: 426px;;
+        background: url(i/gameboy@2x.png) no-repeat;
+        background-size: 100%;
+        position: relative;
+        transform: rotate(-10deg);
+      }
+
+      #gameboy::after {
+        content: "";
+        top: 95.5px;
+        left: 40px;
+        border-radius: 100%;
+        mix-blend-mode: color;
+        width: 6px;
+        height: 6px;
+        background: red;
+        position: absolute;
+        display: none;
+      }
+
+      #gameboy.on::after {
+        display: block;
+      }
+
+      canvas {
+        position: absolute;
+        top: 58px;;
+        left: 67px;
+        width: 130px;
+        height: 120px;
+      }
+
+
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+      }
+
+      html {
+        transform-origin: top center;
+      }
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: radial-gradient(ellipse at center, #9da9c3 0%, #5b6271 20%,#353841 100%);
+        background-size: 100% 4px
+      }
+    </style>
+  </head>
+  <body>
+    <video autoplay width="130" height="120"></video>
+    <section>
+      <div id="gameboy">
+        <canvas width="130" height="120"></canvas>
+      </div>
+    </section>
+  </body>
+  <script type="module" src="j/index.js"></script>
+</html>
